@@ -1,0 +1,1205 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #172554;
+}
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 45px 15px;
+    background: #dbeafe;
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+.search-box {
+    background: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+}
+
+button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #0878d1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #075da5;
+}
+
+#results {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #123c69;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .search-box {
+        margin: 20px 12px;
+    }
+}
+
+/* Flight result cards */
+.flight-card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+.seat-open-button,
+.confirm-seat-button,
+.back-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #0878d1;
+    color: white;
+    font-size: 15px;
+}
+
+.confirm-seat-button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+.back-button {
+    background: #475569;
+}
+
+/* Seat selection legend */
+.seat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+}
+
+/* Airplane cabin */
+.plane {
+    max-width: 380px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 100px 100px 20px 20px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 20px repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+    max-width: 270px;
+    margin: 25px auto;
+}
+
+.seat {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 2px;
+    margin: 0;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.seat.available {
+    background: #16a34a;
+}
+
+.seat.occupied {
+    background: #94a3b8;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+.seat.selected {
+    background: #2563eb;
+    outline: 2px solid #1d4ed8;
+}
+
+.seat:disabled {
+    cursor: not-allowed;
+}
+
+.aisle {
+    width: 20px;
+}
+
+@media (max-width: 450px) {
+    .plane {
+        padding: 15px 8px;
+    }
+
+    .seat-grid {
+        gap: 6px;
+    }
+}
+
+.cancel-booking-button {
+    display: inline-block;
+    background-color: #dc2626;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.cancel-booking-button:hover {
+    background-color: #b91c1c;
+}
+/* ===== FLYORA: SKY BLUE & WHITE THEME ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f9ff;
+    color: #183b56;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+    letter-spacing: 1px;
+}
+
+/* Main content sections */
+section {
+    box-sizing: border-box;
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(2, 132, 199, 0.08);
+}
+
+/* Headings */
+h2 {
+    color: #0284c7;
+    margin-top: 0;
+}
+
+h3 {
+    color: #0369a1;
+}
+
+/* Form fields */
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #bae6fd;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #183b56;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #7dd3fc;
+    border-color: #0284c7;
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #0369a1;
+    transform: translateY(-1px);
+}
+
+/* Booking cards */
+.booking-card {
+    margin: 18px 0;
+    padding: 20px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-left: 5px solid #38bdf8;
+    border-radius: 12px;
+}
+
+.booking-card h3 {
+    overflow-wrap: anywhere;
+}
+
+/* Footer */
+footer {
+    margin-top: 35px;
+    padding: 22px;
+    background: #075985;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 650px) {
+    section {
+        margin: 14px 10px;
+        padding: 17px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+}
+
+/* ===== FLYORA: PROFESSIONAL WEBSITE UPGRADE ===== */
+
+/* Overall website background */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at top left, #e0f2fe 0%, transparent 42%),
+        #f4f9ff;
+    color: #183b56;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* Premium airline header */
+header {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 20px;
+    background: linear-gradient(125deg, #075985, #0284c7, #38bdf8);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(3, 105, 161, 0.18);
+}
+
+header h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #e0f2fe;
+    font-size: 16px;
+}
+
+/* Clean, premium content cards */
+section {
+    box-sizing: border-box;
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(15, 76, 117, 0.07);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+section:hover {
+    box-shadow: 0 14px 38px rgba(15, 76, 117, 0.12);
+}
+
+/* Section headings */
+h2 {
+    color: #075985;
+    font-size: 25px;
+    font-weight: 750;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #0369a1;
+    font-size: 19px;
+}
+
+/* Forms and text fields */
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 1px solid #cbdff0;
+    border-radius: 11px;
+    background: #fafdff;
+    color: #183b56;
+    padding: 13px 15px;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.17);
+    background: #ffffff;
+}
+
+/* Professional buttons */
+button {
+    border: none;
+    border-radius: 11px;
+    padding: 13px 22px;
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(2, 132, 199, 0.16);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0369a1, #075985);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.23);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
+/* Booking and ticket cards */
+.booking-card {
+    padding: 24px;
+    margin: 20px 0;
+    border: 1px solid #dbeafe;
+    border-left: 5px solid #0284c7;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffffff, #f0f9ff);
+    box-shadow: 0 5px 18px rgba(15, 76, 117, 0.06);
+    overflow-wrap: anywhere;
+}
+
+.booking-card h3 {
+    margin-top: 0;
+}
+
+/* Images should stay within their containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    margin-top: 45px;
+    padding: 28px 18px;
+    background: linear-gradient(125deg, #075985, #0c4a6e);
+    color: #e0f2fe;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Smooth, responsive mobile layout */
+@media (max-width: 650px) {
+    header {
+        padding: 35px 16px;
+    }
+
+    section {
+        width: auto;
+        margin: 18px 12px;
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ===== FLYORA PROFESSIONAL THEME ===== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #183b56 !important;
+    background: #f0f9ff !important;
+    line-height: 1.7;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #075985, #0284c7, #38bdf8) !important;
+    color: #ffffff !important;
+    padding: 45px 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(3, 105, 161, 0.18);
+}
+
+header h1 {
+    color: #ffffff !important;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Main content cards */
+section {
+    box-sizing: border-box;
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff !important;
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 76, 117, 0.09);
+}
+
+/* Headings */
+h2 {
+    color: #075985 !important;
+    font-size: 25px;
+}
+
+h3 {
+    color: #0369a1 !important;
+}
+
+/* Input fields */
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #ffffff !important;
+    color: #183b56 !important;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #7dd3fc;
+    border-color: #0284c7;
+}
+
+/* Buttons */
+button {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18);
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: #075985 !important;
+    transform: translateY(-2px);
+}
+
+/* Existing booking cards */
+.booking-card {
+    background: #f0f9ff !important;
+    border: 1px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+    border-radius: 15px;
+    padding: 22px;
+    margin: 20px 0;
+    box-shadow: 0 5px 18px rgba(15, 76, 117, 0.06);
+}
+
+.booking-card h3 {
+    overflow-wrap: anywhere;
+}
+
+/* Footer */
+footer {
+    background: #075985 !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+    section {
+        margin: 16px 10px;
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+}
+
+/* ===================================
+   FLYORA — PREMIUM FLIGHT BOOKING UI
+   =================================== */
+
+/* Main page */
+body {
+    margin: 0;
+    background: #f2f8ff !important;
+    color: #183b56 !important;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation bar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 18px 6%;
+    background: #ffffff !important;
+    color: #075985 !important;
+    box-shadow: 0 4px 20px rgba(15, 76, 117, 0.09);
+}
+
+.logo {
+    color: #0284c7;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: #183b56;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #0284c7;
+}
+
+/* Hero banner */
+.hero {
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 32px auto 24px;
+    padding: 65px 35px;
+    border-radius: 24px;
+    color: #ffffff !important;
+    background: linear-gradient(120deg, #075985, #0284c7 65%, #38bdf8) !important;
+    box-shadow: 0 14px 35px rgba(2, 132, 199, 0.2);
+}
+
+.hero h1 {
+    max-width: 650px;
+    margin: 0 0 14px;
+    color: #ffffff !important;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+}
+
+.hero p {
+    max-width: 560px;
+    color: #e0f2fe !important;
+    font-size: 17px;
+}
+
+/* General content sections */
+main > section:not(.hero) {
+    max-width: 1040px;
+    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 30px;
+    background: #ffffff !important;
+    border: 1px solid #deebf7;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(15, 76, 117, 0.06);
+}
+
+main h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #075985 !important;
+    font-size: 25px;
+}
+
+/* Flight search panel */
+.search-box {
+    border-top: 4px solid #38bdf8 !important;
+}
+
+#flightForm,
+#passengerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#flightForm label,
+#passengerForm label {
+    margin-top: 5px;
+    color: #244b66;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#flightForm input,
+#flightForm select,
+#passengerForm input {
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbdff0;
+    border-radius: 10px;
+    background: #fafdff;
+    color: #183b56;
+    font-size: 15px;
+}
+
+#flightForm input:focus,
+#flightForm select:focus,
+#passengerForm input:focus {
+    outline: 3px solid #bae6fd;
+    border-color: #0284c7;
+}
+
+/* Buttons */
+button {
+    min-height: 44px;
+    margin-top: 8px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #0284c7, #0369a1) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(2, 132, 199, 0.16);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.24);
+}
+
+/* Saved booking tickets */
+.booking-card {
+    box-sizing: border-box;
+    margin: 20px 0;
+    padding: 24px;
+    border: 1px solid #d8eafa;
+    border-left: 5px solid #0284c7;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff, #f0f9ff) !important;
+    box-shadow: 0 6px 20px rgba(15, 76, 117, 0.07);
+    overflow-wrap: anywhere;
+}
+
+.booking-card h3 {
+    color: #0369a1 !important;
+    margin-top: 0;
+}
+
+/* Booking confirmation */
+#bookingConfirmation {
+    border-top: 4px solid #22c55e;
+}
+
+#confirmationDetails {
+    overflow-wrap: anywhere;
+}
+
+/* Footer */
+footer {
+    margin-top: 45px;
+    padding: 25px 15px;
+    background: #073b5c !important;
+    color: #e0f2fe !important;
+    text-align: center;
+}
+
+/* Responsive layout */
+@media (max-width: 1150px) {
+    .hero {
+        margin: 24px 16px;
+    }
+
+    main > section:not(.hero) {
+        margin: 22px 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        justify-content: center;
+        padding: 18px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .hero {
+        padding: 38px 22px;
+        border-radius: 18px;
+    }
+
+    main > section:not(.hero) {
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    main h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* ==========================================
+   FLYORA — FLIGHT CARDS & AIRPLANE SEAT MAP
+   ========================================== */
+
+/* Available flight cards */
+.flight-card {
+    box-sizing: border-box;
+    margin: 22px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff, #f0f9ff);
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    border-left: 5px solid #0284c7;
+    box-shadow: 0 8px 22px rgba(7, 89, 133, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.flight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(7, 89, 133, 0.14);
+}
+
+.flight-card h3 {
+    color: #075985 !important;
+    margin: 8px 0;
+}
+
+.flight-card p {
+    color: #49677e;
+    margin: 8px 0;
+}
+
+.flight-card .seat-open-button {
+    margin-top: 14px;
+}
+
+/* Airplane seat-map panel */
+.plane {
+    box-sizing: border-box;
+    max-width: 420px;
+    margin: 25px auto;
+    padding: 26px 18px;
+    background: linear-gradient(180deg, #e0f2fe, #f8fcff);
+    border: 2px solid #bae6fd;
+    border-radius: 100px 100px 28px 28px;
+    box-shadow: inset 0 0 0 6px #ffffff,
+                0 10px 25px rgba(7, 89, 133, 0.08);
+}
+
+.plane h3 {
+    margin: 0 auto 25px;
+    padding: 12px 8px;
+    border-radius: 10px;
+    background: #075985;
+    color: #ffffff !important;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Two pairs of seats with an aisle in the middle */
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) 28px
+                           repeat(2, minmax(0, 1fr));
+    gap: 12px 8px;
+    justify-items: center;
+    align-items: center;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.aisle {
+    width: 100%;
+    min-height: 28px;
+}
+
+/* All seat states */
+.seat {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 54px;
+    min-width: 0;
+    min-height: 42px;
+    margin: 0;
+    padding: 6px 2px;
+    border: 1px solid #b8d9ec;
+    border-radius: 9px 9px 6px 6px;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 3px 0 rgba(15, 76, 117, 0.1);
+    transform: none;
+}
+
+/* Available seat */
+.seat.available {
+    background: #ffffff !important;
+    color: #0284c7 !important;
+    border-color: #7dd3fc;
+}
+
+.seat.available:hover {
+    background: #e0f2fe !important;
+    transform: translateY(-2px);
+}
+
+/* Selected seat */
+.seat.selected {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0369a1;
+    box-shadow: 0 3px 0 #075985;
+}
+
+/* Occupied seat */
+.seat.occupied,
+.seat.occupied:disabled {
+    background: #d5dee7 !important;
+    color: #64748b !important;
+    border-color: #c0ccd8;
+    cursor: not-allowed;
+    opacity: 0.85;
+    box-shadow: none;
+}
+
+/* Seat legend */
+.seat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+    margin: 22px 0;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #49677e;
+    font-size: 13px;
+}
+
+.legend-item .seat {
+    display: inline-flex;
+    width: 23px;
+    min-width: 23px;
+    max-width: 23px;
+    min-height: 23px;
+    height: 23px;
+    padding: 0;
+    border-radius: 6px;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+/* Booking action buttons */
+.confirm-seat-button {
+    margin-right: 10px;
+}
+
+.confirm-seat-button:disabled {
+    background: #b8c9d8 !important;
+    color: #ffffff !important;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.back-button {
+    background: #e0f2fe !important;
+    color: #075985 !important;
+    border: 1px solid #bae6fd;
+    box-shadow: none;
+}
+
+.back-button:hover {
+    background: #bae6fd !important;
+}
+
+/* Saved booking tickets */
+.booking-card {
+    position: relative;
+    box-sizing: border-box;
+    margin: 22px 0;
+    padding: 25px;
+    border: 1px solid #dbeafe;
+    border-left: 5px solid #0284c7;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff, #f0f9ff) !important;
+    box-shadow: 0 8px 24px rgba(7, 89, 133, 0.07);
+    overflow-wrap: anywhere;
+}
+
+.booking-card h3 {
+    color: #075985 !important;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #b9dcef;
+}
+
+.booking-card p {
+    color: #49677e;
+    margin: 10px 0;
+}
+
+.booking-card strong {
+    color: #0369a1;
+}
+
+.booking-card .cancel-booking-button {
+    background: #fff1f2 !important;
+    color: #be123c !important;
+    border: 1px solid #fecdd3;
+    box-shadow: none;
+}
+
+.booking-card .cancel-booking-button:hover {
+    background: #ffe4e6 !important;
+}
+
+/* Passenger form and confirmation card */
+#passengerSection,
+#bookingConfirmation {
+    border-top: 4px solid #38bdf8;
+}
+
+#bookingConfirmation {
+    border-top-color: #22c55e;
+}
+
+/* Small-screen seat map */
+@media (max-width: 480px) {
+    .flight-card,
+    .booking-card {
+        padding: 18px;
+    }
+
+    .plane {
+        padding: 24px 12px;
+    }
+
+    .seat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) 20px
+                               repeat(2, minmax(0, 1fr));
+        gap: 10px 5px;
+    }
+
+    .seat {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    .seat-legend {
+        gap: 10px;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #bookingConfirmation,
+    #bookingConfirmation * {
+        visibility: visible;
+    }
+
+    #bookingConfirmation {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background: white;
+        color: black;
+    }
+
+    #bookingConfirmation button {
+        display: none !important;
+    }
+}
