@@ -1,145 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyora | Flight Reservation</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a35">
+  <meta name="description" content="Flyora — a simple flight booking demo. Search sample flights, select seats, and manage your bookings.">
+  <title>Flyora — Your journey starts here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Flyora home"><span class="brand-mark">✈</span><span>flyora<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#search">Find flights</a>
+      <a href="#results">Explore</a>
+      <a href="#myBookings">My bookings</a>
+    </nav>
+    <a class="header-cta" href="#search">Book a flight <span>↗</span></a>
+  </header>
 
-    <header>
-        <div class="logo">✈ flyora</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#search">Book Flight</a>
-            <a href="#results">Available Flights</a>
-            <a href="#myBookings">My Bookings</a>
-        </nav>
-    </header>
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT ADVENTURE AWAITS</span>
+        <h1>The world is<br>closer than <span>ever.</span></h1>
+        <p>Find your next destination, choose your favourite seat, and make the journey yours.</p>
+        <a class="hero-link" href="#search">Start exploring <span>↓</span></a>
+        <div class="hero-stats">
+          <div><strong>Easy</strong><span>flight search</span></div>
+          <div><strong>Your seat</strong><span>your choice</span></div>
+          <div><strong>One place</strong><span>to manage trips</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a plane flying above layered blue mountains">
+        <div class="sun"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="plane-emoji">✈</div>
+        <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+        <div class="destination-tag"><span class="tag-icon">⌖</span><span><b>Somewhere new</b><small>Your next chapter</small></span></div>
+        <div class="art-caption">TAKE THE SCENIC ROUTE</div>
+      </div>
+    </section>
 
-    <main>
-        <section class="hero">
-            <h1>Explore the World with flyora</h1>
-            <p>Search flights, choose your seat and book your journey.</p>
-        </section>
+    <section class="search-section" id="search">
+      <div class="section-heading">
+        <div><span class="eyebrow dark-eyebrow">PLAN YOUR TRIP</span><h2>Where to next?</h2></div>
+        <span class="demo-pill"><span></span> FLIGHT SEARCH DEMO</span>
+      </div>
+      <form id="flightForm" class="flight-form">
+        <div class="field"><label for="from">Flying from</label><div class="input-wrap"><span class="field-icon">⌖</span><select id="from" required><option value="">Choose city</option><option value="Pune">Pune</option><option value="Mumbai">Mumbai</option><option value="Delhi">Delhi</option><option value="Bengaluru">Bengaluru</option></select></div></div>
+        <div class="route-swap" aria-hidden="true">⇄</div>
+        <div class="field"><label for="to">Flying to</label><div class="input-wrap"><span class="field-icon">⌖</span><select id="to" required><option value="">Choose city</option><option value="Pune">Pune</option><option value="Mumbai">Mumbai</option><option value="Delhi">Delhi</option><option value="Bengaluru">Bengaluru</option></select></div></div>
+        <div class="field"><label for="date">Departure date</label><div class="input-wrap"><span class="field-icon">▦</span><input type="date" id="date" required></div></div>
+        <div class="field"><label for="passengers">Travellers</label><div class="input-wrap"><span class="field-icon">♙</span><select id="passengers"><option value="1">1 traveller</option><option value="2">2 travellers</option><option value="3">3 travellers</option><option value="4">4 travellers</option></select></div></div>
+        <button class="search-button" type="submit"><span>Search flights</span><span>↗</span></button>
+      </form>
+      <p class="form-note">✦ Sample routes and fares for a student project. No real tickets are issued.</p>
+    </section>
 
-        <section class="search-box" id="search">
-            <h2>Book Your Flight</h2>
+    <section id="results" class="results-section">
+      <div class="section-heading"><div><span class="eyebrow dark-eyebrow">FLIGHT OPTIONS</span><h2>Ready when you are.</h2></div></div>
+      <div class="empty-state"><div class="empty-icon">✈</div><p>Choose your cities and travel date above to see sample flights.</p></div>
+    </section>
 
-            <form id="flightForm">
-                <label for="from">From</label>
-                <select id="from" required>
-                    <option value="">Select departure city</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Bengaluru">Bengaluru</option>
-                </select>
+    <section id="passengerSection" class="content-section" style="display:none">
+      <div class="section-heading"><div><span class="eyebrow dark-eyebrow">ALMOST THERE</span><h2>Passenger details</h2></div></div>
+      <form id="passengerForm" class="passenger-form">
+        <div class="field"><label for="passengerName">Full name</label><input type="text" id="passengerName" required placeholder="As shown on ID"></div>
+        <div class="field"><label for="passengerAge">Age</label><input type="number" id="passengerAge" min="1" max="120" required placeholder="Your age"></div>
+        <div class="field"><label for="passengerEmail">Email address</label><input type="email" id="passengerEmail" required placeholder="you@example.com"></div>
+        <div class="field"><label for="passengerPhone">Phone number</label><input type="tel" id="passengerPhone" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number"></div>
+        <button class="search-button" type="submit"><span>Confirm booking</span><span>↗</span></button>
+      </form>
+    </section>
 
-                <label for="to">To</label>
-                <select id="to" required>
-                    <option value="">Select destination city</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Bengaluru">Bengaluru</option>
-                </select>
+    <section id="bookingConfirmation" class="content-section confirmation-section" style="display:none">
+      <div class="confirmation-symbol">✓</div><span class="eyebrow dark-eyebrow">YOU'RE ALL SET</span><h2>Booking confirmed!</h2>
+      <div id="confirmationDetails"></div>
+      <button type="button" onclick="window.print()" class="print-ticket-button">Print / Download ticket ↗</button>
+    </section>
 
-                <label for="date">Departure Date</label>
-                <input type="date" id="date" required>
+    <section id="myBookings" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow dark-eyebrow">YOUR TRIPS</span><h2>My bookings</h2></div><span class="section-count">SAVED ON THIS DEVICE</span></div>
+      <p class="muted">Your confirmed sample bookings will appear here.</p>
+    </section>
 
-                <label for="passengers">Passengers</label>
-                <select id="passengers">
-                    <option value="1">1 Passenger</option>
-                    <option value="2">2 Passengers</option>
-                    <option value="3">3 Passengers</option>
-                    <option value="4">4 Passengers</option>
-                </select>
+    <section id="bookingHistory" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow dark-eyebrow">THE ARCHIVE</span><h2>Booking history</h2></div></div>
+      <p class="muted">Cancelled bookings will be kept here.</p>
+    </section>
+  </main>
 
-                <button type="submit">Search Flights</button>
-            </form>
-        </section>
-
-        <section id="results">
-            <h2>Available Flights</h2>
-            <p>Search for a flight to see available options.</p>
-        </section>
-
-<section id="passengerSection" style="display: none;">
-    <h2>Passenger Details</h2>
-
-    <form id="passengerForm">
-        <label for="passengerName">Full Name</label>
-        <input
-            type="text"
-            id="passengerName"
-            required
-            placeholder="Enter passenger name"
-        >
-
-        <label for="passengerAge">Age</label>
-        <input
-            type="number"
-            id="passengerAge"
-            min="1"
-            max="120"
-            required
-            placeholder="Enter age"
-        >
-
-        <label for="passengerEmail">Email</label>
-        <input
-            type="email"
-            id="passengerEmail"
-            required
-            placeholder="Enter email address"
-        >
-
-        <label for="passengerPhone">Phone Number</label>
-        <input
-            type="tel"
-            id="passengerPhone"
-            pattern="[0-9]{10}"
-            maxlength="10"
-            required
-            placeholder="10-digit mobile number"
-        >
-
-        <button type="submit">Confirm Booking</button>
-    </form>
-</section>
-
-<section id="bookingConfirmation" style="display: none;">
-    <h2>Booking Confirmation</h2>
-
-    <div id="confirmationDetails"></div>
-
-    <button
-        type="button"
-        onclick="window.print()"
-        class="print-ticket-button">
-        🖨️ Print / Download Ticket
-    </button>
-</section>
-
-
-        <section id="myBookings">
-            <h2>My Bookings</h2>
-            <p>Your saved tickets will appear here.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 flyora| Flight Reservation Project</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">✈</span><span>flyora<span class="brand-dot">.</span></span></a>
+    <p>Made for journeys big and small.</p>
+    <span class="footer-note">© 2026 Flyora · Student flight reservation project</span>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var dateInput = document.getElementById('date');
+      if (dateInput) {
+        var today = new Date();
+        var localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+        dateInput.min = localToday;
+      }
+    })();
+  </script>
 </body>
 </html>
-
-<section id="bookingHistory">
-    <h2>Booking History</h2>
-    <p>No cancelled bookings yet.</p>
-</section>
