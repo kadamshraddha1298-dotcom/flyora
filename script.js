@@ -2,6 +2,35 @@
 const form = document.getElementById("flightForm");
 const results = document.getElementById("results");
 
+// ADD MORE CITY OPTIONS TO THE DEPARTURE AND DESTINATION DROPDOWNS
+const cities = [
+    "Pune", "Mumbai", "Delhi", "Bengaluru", "Hyderabad", "Chennai",
+    "Kolkata", "Goa", "Ahmedabad", "Jaipur", "Lucknow", "Kochi",
+    "Indore", "Nagpur", "Surat", "Chandigarh", "Patna",
+    "Bhubaneswar", "Guwahati", "Varanasi", "Srinagar"
+];
+
+function populateCities(selectElement) {
+    if (!selectElement || selectElement.tagName !== "SELECT") return;
+
+    cities.forEach(function(city) {
+        const exists = Array.from(selectElement.options).some(function(option) {
+            return option.value === city;
+        });
+
+        if (!exists) {
+            const option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            selectElement.appendChild(option);
+        }
+    });
+}
+
+populateCities(document.getElementById("from"));
+populateCities(document.getElementById("to"));
+
+
 // SAMPLE FLIGHT DATA
 const flights = [
     {
@@ -129,11 +158,59 @@ if (form && results) {
             delete selectedSeats[id];
         });
 
-        const availableFlights = flights.filter(function(flight) {
-            return flight.from === from &&
-                flight.to === to &&
-                flight.seats >= passengers;
+        const routeFlights = flights.filter(function(flight) {
+            return flight.from === from && flight.to === to;
         });
+
+        let availableFlights = routeFlights.filter(function(flight) {
+            return flight.seats >= passengers;
+        });
+
+        // Generate clearly fictional demo flights when a route has no sample data.
+        if (routeFlights.length === 0) {
+            const routeCode = (from + to)
+                .toUpperCase()
+                .replace(/[^A-Z0-9]/g, "")
+                .slice(0, 18);
+
+            availableFlights = [
+                {
+                    id: "FY" + routeCode + "1",
+                    airline: "Flyora Airways",
+                    from: from,
+                    to: to,
+                    departure: "08:00 AM",
+                    arrival: "10:00 AM",
+                    price: 3500,
+                    seats: 12,
+                    occupied: ["1A", "1B", "2C", "3D"]
+                },
+                {
+                    id: "FY" + routeCode + "2",
+                    airline: "Sky Express",
+                    from: from,
+                    to: to,
+                    departure: "12:30 PM",
+                    arrival: "02:30 PM",
+                    price: 4200,
+                    seats: 8,
+                    occupied: ["1A", "1B", "1C", "1D", "2A", "2B", "2C", "2D"]
+                },
+                {
+                    id: "FY" + routeCode + "3",
+                    airline: "Cloud Air",
+                    from: from,
+                    to: to,
+                    departure: "06:00 PM",
+                    arrival: "08:00 PM",
+                    price: 5000,
+                    seats: 6,
+                    occupied: ["1A", "1B", "1C", "1D", "2A", "2B", "2C", "2D", "3A", "3B"]
+                }
+            ].filter(function(flight) {
+                return flight.seats >= passengers;
+            });
+        }
 
         results.replaceChildren();
 
